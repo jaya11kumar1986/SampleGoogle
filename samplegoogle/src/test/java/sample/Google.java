@@ -2,6 +2,8 @@ package sample;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -32,6 +34,9 @@ public class Google {
 		String title = driver.getTitle();
 		System.out.println("Page Title :"+title);
 		Assert.assertEquals(title,"Google");
+		
+		driver.findElement(By.name("q")).sendKeys("Tamil"+Keys.ENTER);
+		System.out.println(driver.getTitle());
 	}
 	@AfterMethod
 	public void tearDown() {
